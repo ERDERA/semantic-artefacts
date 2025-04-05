@@ -1,0 +1,36 @@
+# Qleverfile for HOOM-Orphanet dataset, to be used with https://github.com/ad-freiburg/qlever-control
+#
+# Usage:
+#   qlever get-data     # no-op, local TTL assumed
+#   qlever-control index        # builds the index
+#   qlever-control start        # starts the server
+
+[data]
+NAME             = hoom_orphanet
+RELEASE          = 2.3
+GET_DATA_CMD     = cp ../../ontologies/hoom_orphanet_2.3.ttl hoom_orphanet.ttl && \
+                   grep ^@prefix hoom_orphanet.ttl | tr -s ' ' | sort -u > ${NAME}.prefix-definitions
+DESCRIPTION      = HOOM-Orphanet RDF v${RELEASE}, local import
+TEXT_DESCRIPTION = All literals, search with FILTER KEYWORDS(?text, "...")
+
+[index]
+INPUT_FILES     = ${data:NAME}.prefix-definitions hoom_orphanet.ttl
+CAT_INPUT_FILES = cat ${INPUT_FILES}
+SETTINGS_JSON   = { "ascii-prefixes-only": false, "num-triples-per-batch": 1000000, "prefixes-external": [""] }
+TEXT_INDEX      = from_literals
+
+[server]
+HOSTNAME           = localhost
+PORT               = 7035
+ACCESS_TOKEN       = ${data:NAME}
+MEMORY_FOR_QUERIES = 10G
+
+
+[runtime]
+
+SYSTEM = docker
+IMAGE  = docker.io/adfreiburg/qlever:latest
+
+[ui]
+UI_PORT   = 9000
+UI_CONFIG = hoom-orphanet
