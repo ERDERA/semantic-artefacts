@@ -1,0 +1,158 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ome: <http://www.openmicroscopy.org/rdf/2016-06/ome_core/>
+PREFIX ome-xml: <http://www.openmicroscopy.org/Schemas/OME/2016-06#>
+PREFIX omero: <http://www.openmicroscopy.org/TBD/omero/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/ontology/HOOM>
+PREFIX licenses: <https://creativecommons.org/licenses/>
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+            # 53.11917378566289 % obj: owl:Class. Cardinality: {1}
+   rdfs:label  xsd:string  ?;
+            # 53.11917378566289 % obj: xsd:string. Cardinality: {1}
+   rdfs:subClassOf  @:Class  ?;
+            # 53.115993591909586 % obj: @:Class. Cardinality: {1}
+   owl:equivalentClass  @<BNode>  ?;
+            # 46.88321135965209 % obj: @<BNode>. Cardinality: {1}
+   rdfs:comment  xsd:string  ?;
+            # 1.7093541424011256 % obj: xsd:string. Cardinality: {1}
+   rdfs:isDefinedBy  xsd:string  ?;
+            # 0.0035777179724674722 % obj: xsd:string. Cardinality: {1}
+   owl:disjointWith  @:Class  ?;
+            # 0.000795048438326105 % obj: @:Class. Cardinality: {1}
+   rdfs:comment  rdf:langString  ?;
+            # 0.0003975242191630525 % obj: rdf:langString. Cardinality: {1}
+   rdfs:isDefinedBy  rdf:langString  ?;
+            # 0.0003975242191630525 % obj: rdf:langString. Cardinality: {1}
+   licenses:requires  IRI  *;
+            # 0.0003975242191630525 % obj: IRI. Cardinality: {2}
+   licenses:permits  IRI  *
+            # 0.0003975242191630525 % obj: IRI. Cardinality: {3}
+}
+
+
+:AsymmetricProperty
+{
+   rdf:type  [owl:AsymmetricProperty]  ;                       # 100.0 %
+   rdf:type  [owl:IrreflexiveProperty]  ;                      # 100.0 %
+   rdf:type  [owl:ObjectProperty]  ;                           # 100.0 %
+   rdfs:range  @:Class  ;                                      # 100.0 %
+   rdfs:label  rdf:langString  ;                               # 100.0 %
+   rdfs:domain  @:Class  ;                                     # 100.0 %
+   owl:inverseOf  IRI  ?
+            # 50.0 % obj: IRI. Cardinality: {1}
+            # 50.0 % obj: @:ObjectProperty. Cardinality: {1}
+            # 50.0 % obj: @:IrreflexiveProperty. Cardinality: {1}
+            # 50.0 % obj: @:AsymmetricProperty. Cardinality: {1}
+}
+
+
+:IrreflexiveProperty
+{
+   rdf:type  [owl:AsymmetricProperty]  ;                       # 100.0 %
+   rdf:type  [owl:IrreflexiveProperty]  ;                      # 100.0 %
+   rdf:type  [owl:ObjectProperty]  ;                           # 100.0 %
+   rdfs:range  @:Class  ;                                      # 100.0 %
+   rdfs:label  rdf:langString  ;                               # 100.0 %
+   rdfs:domain  @:Class  ;                                     # 100.0 %
+   owl:inverseOf  IRI  ?
+            # 50.0 % obj: IRI. Cardinality: {1}
+            # 50.0 % obj: @:ObjectProperty. Cardinality: {1}
+            # 50.0 % obj: @:IrreflexiveProperty. Cardinality: {1}
+            # 50.0 % obj: @:AsymmetricProperty. Cardinality: {1}
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:AsymmetricProperty]  ;                       # 100.0 %
+   rdf:type  [owl:IrreflexiveProperty]  ;                      # 100.0 %
+   rdf:type  [owl:ObjectProperty]  ;                           # 100.0 %
+   rdfs:range  @:Class  ;                                      # 100.0 %
+   rdfs:label  rdf:langString  ;                               # 100.0 %
+   rdfs:domain  @:Class  ;                                     # 100.0 %
+   owl:inverseOf  IRI  ?
+            # 50.0 % obj: IRI. Cardinality: {1}
+            # 50.0 % obj: @:ObjectProperty. Cardinality: {1}
+            # 50.0 % obj: @:IrreflexiveProperty. Cardinality: {1}
+            # 50.0 % obj: @:AsymmetricProperty. Cardinality: {1}
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;                         # 100.0 %
+   rdfs:range  IRI  ;                                          # 100.0 %
+   rdfs:isDefinedBy  rdf:langString  ;                         # 100.0 %
+   rdfs:label  rdf:langString  ;                               # 100.0 %
+   rdfs:comment  rdf:langString  ;                             # 100.0 %
+   rdfs:domain  @:Class                                        # 100.0 %
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]                          # 100.0 %
+}
+
+
+:NamedIndividual
+{
+   rdfs:comment  rdf:langString  ;                             # 100.0 %
+   rdf:type  [owl:NamedIndividual]  ;                          # 100.0 %
+   rdf:type  [:Evidence]  ;                                    # 100.0 %
+   rdfs:label  rdf:langString                                  # 100.0 %
+}
+
+
+:HOOMEvidence
+{
+   rdfs:comment  rdf:langString  ;                             # 100.0 %
+   rdf:type  [owl:NamedIndividual]  ;                          # 100.0 %
+   rdf:type  [:Evidence]  ;                                    # 100.0 %
+   rdfs:label  rdf:langString                                  # 100.0 %
+}
+
+
+:Ontology
+{
+   dc:creator  xsd:string  {7};                                # 100.0 %
+   dc:language  xsd:string  ;                                  # 100.0 %
+   owl:versionInfo  xsd:string  ;                              # 100.0 %
+   dcterms:modified  xsd:dateTime  ;                           # 100.0 %
+   dcterms:created  xsd:dateTime  ;                            # 100.0 %
+   rdf:type  [owl:Ontology]  ;                                 # 100.0 %
+   dcterms:license  @:Class                                    # 100.0 %
+}
+
+
