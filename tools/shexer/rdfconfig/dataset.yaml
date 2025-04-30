@@ -1,0 +1,15 @@
+dataset:
+  id: hoom
+  title: "First example built from HOOM"
+  description: "This describes the HOOM dataset"
+  homepage: "https://www.orphadata.com/hoom/"     # <-- your project homepage
+  license: "https://creativecommons.org/licenses/by/4.0/"
+  creators:
+    - name: "Needs to be filled"
+      homepage: "https://your-website.example.org"
+  sparql_endpoint: "https://localhost:7200"   # <-- Optional if you have a SPARQL endpoint
+  files:
+    model:
+      - path: model.yaml
+    prefix:
+      - path: prefix.yaml
