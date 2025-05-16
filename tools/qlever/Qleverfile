@@ -1,30 +1,23 @@
-# Qleverfile for HOOM-Orphanet dataset, to be used with https://github.com/ad-freiburg/qlever-control
-#
-# Usage:
-#   qlever get-data     # no-op, local TTL assumed
-#   qlever-control index        # builds the index
-#   qlever-control start        # starts the server
+# Qleverfile for HOOM-Orphanet dataset, adapted to include all RDF files in the folder.
 
 [data]
 NAME             = hoom_orphanet
 RELEASE          = 2.3
-GET_DATA_CMD     = cp ../../ontologies/hoom_orphanet_2.3.ttl hoom_orphanet.ttl && \
-                   grep ^@prefix hoom_orphanet.ttl | tr -s ' ' | sort -u > ${NAME}.prefix-definitions
 DESCRIPTION      = HOOM-Orphanet RDF v${RELEASE}, local import
+GET_DATA_CMD = find . -maxdepth 1 -type f \( -name "*.ttl" -o -name "*.nt" -o -name "*.rdf" \) -exec grep '^@prefix' {} + | tr -s ' ' | sort -u > ${NAME}.prefix-definitions
 TEXT_DESCRIPTION = All literals, search with FILTER KEYWORDS(?text, "...")
 
 [index]
-INPUT_FILES     = ${data:NAME}.prefix-definitions hoom_orphanet.ttl
-CAT_INPUT_FILES = cat ${INPUT_FILES}
+INPUT_FILES = ${data:NAME}.prefix-definitions *.ttl
+CAT_INPUT_FILES = find . -maxdepth 1 -type f \( -name "*.ttl" -o -name "*.nt" -o -name "*.rdf" \) -exec cat {} +
 SETTINGS_JSON   = { "ascii-prefixes-only": false, "num-triples-per-batch": 1000000, "prefixes-external": [""] }
 TEXT_INDEX      = from_literals
 
 [server]
-HOSTNAME           = localhost
-PORT               = 7035
+HOSTNAME           = 81.24.6.179
+PORT               = 7025
 ACCESS_TOKEN       = ${data:NAME}
 MEMORY_FOR_QUERIES = 10G
-
 
 [runtime]
 
@@ -33,4 +26,3 @@ IMAGE  = docker.io/adfreiburg/qlever:latest
 
 [ui]
 UI_PORT   = 9000
-UI_CONFIG = hoom-orphanet
