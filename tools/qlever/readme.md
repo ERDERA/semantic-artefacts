@@ -7,7 +7,7 @@
 QLever is an open-source, high-performance SPARQL engine for querying RDF data.  
 This repository includes a local RDF dataset (e.g., **HOOM-Orphanet**) and a preconfigured `QLeverfile` to allow quick setup and querying.
 
-> 💡 For more information, visit the [official QLever GitHub](https://github.com/ad-freiburg/qlever).
+> For more information, visit the [official QLever GitHub](https://github.com/ad-freiburg/qlever).
 
 ---
 
@@ -32,7 +32,7 @@ sudo apt install -y python3-pip python3-venv \
 ```
 
 <details>
-<summary>🛠️ If Docker isn't installed yet, click to expand</summary>
+<summary>If Docker isn't installed yet, click to expand</summary>
 
 ```bash
 # Add Docker GPG key and repository
